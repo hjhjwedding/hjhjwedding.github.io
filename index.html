@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리의 결혼식에 초대합니다</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            background-color: #fdfdfd;
+        }
+        .invitation-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 4rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            color: #5c5c5c;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .account-info {
+            margin-top: 2rem;
+        }
+        .account-box {
+            border: 1px solid #eee;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 8px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .account-box:hover {
+            background-color: #f0f0f0;
+        }
+        .account-holder {
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-container">
+
+        <!-- Invitation Image -->
+        <div class="section">
+            <img src="resource/invitation1.jpg" alt="청첩장 1" style="margin-bottom: 1rem;">
+            <img src="resource/invitation2.jpg" alt="청첩장 2">
+        </div>
+
+        <!-- Map Image -->
+        <div class="section">
+            <h2 class="section-title">오시는 길</h2>
+            <img src="resource/map.jpg" alt="오시는 길 안내">
+        </div>
+
+        <!-- Photo Carousel -->
+        <div class="section">
+            <h2 class="section-title">우리의 순간들</h2>
+            <div id="weddingCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="photo/photo1.jpg" class="d-block w-100" alt="웨딩 사진 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="photo/photo2.jpg" class="d-block w-100" alt="웨딩 사진 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="photo/photo3.jpg" class="d-block w-100" alt="웨딩 사진 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="photo/photo4.jpg" class="d-block w-100" alt="웨딩 사진 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="photo/photo5.jpg" class="d-block w-100" alt="웨딩 사진 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#weddingCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#weddingCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Account Info -->
+        <div class="section account-info">
+            <h2 class="section-title">마음 전하실 곳</h2>
+            <div class="d-grid gap-3 col-10 col-md-8 mx-auto">
+                <button type="button" class="btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#groomModal">
+                    신랑측 계좌번호 보기
+                </button>
+                <button type="button" class="btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#brideModal">
+                    신부측 계좌번호 보기
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Groom's Side Modal -->
+    <div class="modal fade" id="groomModal" tabindex="-1" aria-labelledby="groomModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="groomModalLabel">신랑측 계좌번호</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="account-holder">신랑</span><br>
+                                은행 098-765-432109
+                            </div>
+                            <button class="btn btn-sm btn-outline-dark" onclick="copyToClipboard('098-765-432109')">복사</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="account-holder">아버지</span><br>
+                                은행 111-222-333333
+                            </div>
+                            <button class="btn btn-sm btn-outline-dark" onclick="copyToClipboard('111-222-333333')">복사</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="account-holder">어머니</span><br>
+                                은행 444-555-666666
+                            </div>
+                            <button class="btn btn-sm btn-outline-dark" onclick="copyToClipboard('444-555-666666')">복사</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bride's Side Modal -->
+    <div class="modal fade" id="brideModal" tabindex="-1" aria-labelledby="brideModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="brideModalLabel">신부측 계좌번호</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="account-holder">신부</span><br>
+                                은행 123-456-789012
+                            </div>
+                            <button class="btn btn-sm btn-outline-dark" onclick="copyToClipboard('123-456-789012')">복사</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="account-holder">아버지</span><br>
+                                은행 777-888-999999
+                            </div>
+                            <button class="btn btn-sm btn-outline-dark" onclick="copyToClipboard('777-888-999999')">복사</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="account-holder">어머니</span><br>
+                                은행 101-112-131415
+                            </div>
+                            <button class="btn btn-sm btn-outline-dark" onclick="copyToClipboard('101-112-131415')">복사</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>우리의 새로운 시작을 함께 축복해주세요.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Copy to clipboard script -->
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('계좌번호가 클립보드에 복사되었습니다.');
+            }, function(err) {
+                alert('복사에 실패했습니다. 다시 시도해주세요.');
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
